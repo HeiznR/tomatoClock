@@ -1,0 +1,16 @@
+.button {
+    padding: 10px;
+    border-radius: 50px;
+    background-color: inherit;
+    border: 2px solid black;
+    cursor: pointer;
+    translate: 0.1s;
+    color: black;
+}
+.button:hover {
+    transform: scale(1.2);
+}
+.button:active {
+    background-color: #2d27dc;
+    color: white;
+}
