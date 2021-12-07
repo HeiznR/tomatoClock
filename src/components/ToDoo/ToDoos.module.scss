@@ -25,7 +25,7 @@
         flex-direction: row;
         padding: 10px 20px;
         justify-content: space-between;
-        & input {
+        & > input {
             @include default();
             width: 150px;
         }
@@ -34,7 +34,7 @@
             width: 100px;
             cursor: pointer;
             transition: 0.1s;
-            &:hover {
+            &:not([disabled]):hover {
                 color: red;
             }
         }

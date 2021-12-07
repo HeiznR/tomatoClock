@@ -17,6 +17,7 @@ const ToDo: FC = () => {
             <div className={styles.todoo__menu}>
                 <input type="text" onChange={handleInput} value={value} />
                 <button
+                    disabled={value ? false : true}
                     onClick={() => {
                         dispatch(addRecord(value));
                     }}

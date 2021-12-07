@@ -16,7 +16,7 @@ const handleTimer = createSlice({
     name: "handleTimer",
     initialState,
     reducers: {
-        setTimer(state, action) {
+        setTimer(state) {
             state.isActive = !state.isActive;
         },
         setWorkLength(state, action: PayloadAction<number>) {
