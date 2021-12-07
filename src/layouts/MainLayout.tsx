@@ -4,6 +4,8 @@ import SideBar from "../components/SideBar/SideBar";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { handleSideBar } from "../redux/Reducers/SideBar";
 import styles from "./MainLayout.module.scss";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MainLayout = ({ children }: any) => {
     const isActive = useTypedSelector((state) => state.sideBar.isActive);
@@ -12,18 +14,18 @@ const MainLayout = ({ children }: any) => {
         <>
             <SideBar sideBarOpen={isActive} />
             <button
-                className={styles.button}
-                onClick={() => dispatch(handleSideBar())}
-            >
-                Open
-            </button>
-            <div
-                className={classNames(styles.wrapper, {
+                className={classNames(styles.button, {
                     [styles.active]: isActive === true,
                 })}
+                onClick={() => dispatch(handleSideBar())}
             >
-                {children}
-            </div>
+                {isActive ? (
+                    <FontAwesomeIcon icon={faTimes}  />
+                ) : (
+                    <FontAwesomeIcon icon={faBars}  />
+                )}
+            </button>
+            <div className={styles.wrapper}>{children}</div>
         </>
     );
 };

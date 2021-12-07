@@ -1,3 +1,5 @@
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 import { addToDoneRecords, deleteRecord } from "../../../redux/Reducers/ToDoo";
@@ -25,11 +27,11 @@ const OneToDoo: FC<IProps> = ({ value, index, type }) => {
                         )
                     }
                 >
-                    ok
+                    <FontAwesomeIcon icon={faCheck} />
                 </button>
             )}
             <button onClick={() => dispatch(deleteRecord({ index, type }))}>
-                X
+                <FontAwesomeIcon icon={faTimes} />
             </button>
         </div>
     );

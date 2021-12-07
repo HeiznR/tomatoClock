@@ -5,21 +5,25 @@
     width: 300px;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
-    border-right: 2px solid whitesmoke;
     left: -300px;
     transition: 0.3s linear;
     z-index: 3;
     .sideBar__navigation {
         display: flex;
         flex-direction: column;
-        & a {
+        & .sideBar__link {
+            color: whitesmoke;
+            font-size: 24px;
+            font-weight: 600;
             display: block;
             padding: 20px;
             text-decoration: none;
-            color: black;
-        }
-        & a:hover {
-            background-color: whitesmoke;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            & > :first-child {
+                margin-right: 20px;
+            }
         }
     }
 }

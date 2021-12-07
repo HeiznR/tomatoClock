@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import MainLayout from "../layouts/MainLayout";
 import { setBreakLength, setWorkLength } from "../redux/Reducers/Timer";
+import styles from "./Settings.module.scss";
 
 const Settings = () => {
     const defaultValues = useTypedSelector((state) => state.timer);
@@ -19,35 +20,42 @@ const Settings = () => {
     return (
         <>
             <MainLayout>
-                <div>
-                    <input
-                        type="number"
-                        value={values.work}
-                        name="work"
-                        onChange={handleInput}
-                    />
-                    <button
-                        onClick={() => {
-                            dispatch(setWorkLength(values.work));
-                        }}
+                <p className={styles.Logo}>Settings</p>
+                <div className={styles.settings}>
+                    <div
+                        className={`${styles.settings__workTime} ${styles.settings__div}`}
                     >
-                        Set
-                    </button>
-                </div>
-                <div>
-                    <input
-                        type="number"
-                        value={values.break}
-                        name="break"
-                        onChange={handleInput}
-                    />
-                    <button
-                        onClick={() => {
-                            dispatch(setBreakLength(values.break));
-                        }}
-                    >
-                        Set
-                    </button>
+                        <p>Work Time</p>
+                        <input
+                            type="number"
+                            value={values.work}
+                            name="work"
+                            onChange={handleInput}
+                        />
+                        <button
+                            onClick={() => {
+                                dispatch(setWorkLength(values.work));
+                            }}
+                        >
+                            Set
+                        </button>
+                    </div>
+                    <div className={styles.settings__div}>
+                        <p>Break Time</p>
+                        <input
+                            type="number"
+                            value={values.break}
+                            name="break"
+                            onChange={handleInput}
+                        />
+                        <button
+                            onClick={() => {
+                                dispatch(setBreakLength(values.break));
+                            }}
+                        >
+                            Set
+                        </button>
+                    </div>
                 </div>
             </MainLayout>
         </>
