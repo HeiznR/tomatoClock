@@ -1,28 +1,38 @@
-.wrapper {
+@mixin flex {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
+}
+
+.wrapper {
+    @include flex;
+    flex-direction: row;
+    background-color: #4c9195;
     width: 100%;
     height: 100vh;
-    & > p:first-child {
-        font-size: 120px;
+    & > main {
+        @include flex;
+        flex-direction: column;
+        flex-grow: 1;
+        & button {
+            cursor: pointer;
+            color: #4c9195;
+            font-weight: 600;
+            font-size: 30px;
+            background-color: whitesmoke;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 60px;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+        }
     }
-
-    & button {
-        padding: 10px;
-        border-radius: 50px;
-        background-color: inherit;
-        border: 2px solid black;
-        cursor: pointer;
-        translate: 0.1s;
-    }
-    & button:hover {
-        transform: scale(1.2);
-    }
-    & button:active {
-        background-color: #2d27dc;
+    & > main > p {
         color: white;
+    }
+    & > main > p:first-child {
+        font-size: 90px;
+    }
+    & > main > p:nth-child(2) {
+        font-size: 120px;
     }
 }

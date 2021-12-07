@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../hooks/useTypedSelector";
@@ -7,8 +8,8 @@ import { setBreakLength, setWorkLength } from "../redux/Reducers/Timer";
 const Settings = () => {
     const defaultValues = useTypedSelector((state) => state.timer);
     const [values, setValues] = useState({
-        work: defaultValues.workLength,
-        break: defaultValues.breakLength,
+        work: moment.duration(defaultValues.workLength, "s").minutes(),
+        break: moment.duration(defaultValues.breakLength, "s").minutes(),
     });
     const dispatch = useDispatch();
     const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {

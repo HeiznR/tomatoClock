@@ -1,0 +1,26 @@
+.oneToDo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+
+    & div {
+        color: whitesmoke;
+    }
+    & button {
+        background-color: inherit;
+        border-radius: 20px;
+        padding: 5px 8px;
+        color: whitesmoke;
+        border: 1px solid whitesmoke;
+        cursor: pointer;
+    }
+    & button:hover {
+        background-color: whitesmoke;
+        color: #4c9195;
+    }
+}
+.oneToDo:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
